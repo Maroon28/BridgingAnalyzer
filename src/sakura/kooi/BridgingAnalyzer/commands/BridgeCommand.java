@@ -13,18 +13,18 @@ public class BridgeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("§b§l搭路练习 §7>> §c此命令用于配置插件参数, 仅玩家可以执行.");
+            sender.sendMessage("§b§BridgePractice §7>> §cThis command is used to configure plugin parameters, and only players can execute it.");
             return true;
         }
         if (args.length != 1) {
             SendMessageUtils.sendMessage(sender,
-                    "§b§l搭路练习 §7>> §b§lBridgingAnalyzer | By.SakuraKooi",
-                    "§b§l搭路练习 §7>> §e/bridge highlight    §a启用/禁用侧搭辅助指示",
-                    "§b§l搭路练习 §7>> §e/bridge pvp         §a启用/禁用伤害屏蔽",
-                    "§b§l搭路练习 §7>> §e/bridge speed       §a启用/禁用搭路速度统计",
-                    "§b§l搭路练习 §7>> §e/bridge stand       §a启用/禁用走搭位置指示",
-                    "§b§l搭路练习 §7>> §d所配置的参数仅对您有效, 其他玩家不受影响",
-                    "§b§l搭路练习 §7>> §bhttps://github.com/SakuraKoi/BridgingAnalyzer"
+                    "§b§BridgePractice §7>> §b§lBridgingAnalyzer | By.SakuraKooi",
+                    "§b§BridgePractice §7>> §e/bridge highlight   §aEnable/disable side ride assist indication",
+                    "§b§BridgePractice §7>> §e/bridge pvp         §aEnable/Disable PVP",
+                    "§b§BridgePractice §7>> §e/bridge speed       §aEnable/disable bridge speed statistics",
+                    "§b§BridgePractice §7>> §e/bridge stand       §aEnable/disable walking position indication",
+                    "§b§BridgePractice §7>> §dThe configured parameters are only valid for you, other players are not affected",
+                    "§b§BridgePractice §7>> §bhttps://github.com/SakuraKoi/BridgingAnalyzer"
             );
             return true;
         }
@@ -32,26 +32,26 @@ public class BridgeCommand implements CommandExecutor {
         switch (args[0].toLowerCase()) {
             case "highlight": {
                 counter.setHighlightEnabled(!counter.isHighlightEnabled());
-                sender.sendMessage("§b§l搭路练习 §7>> §a侧搭辅助指示已" + (counter.isHighlightEnabled() ? "开启" : "关闭"));
+                sender.sendMessage("§b§BridgePractice §7>> §aSide ride assist instructions have been" + (counter.isHighlightEnabled() ? "Turned on" : "Turned off"));
                 break;
             }
             case "pvp": {
                 counter.setPvPEnabled(!counter.isPvPEnabled());
-                sender.sendMessage("§b§l搭路练习 §7>> §aPvP已" + (counter.isPvPEnabled() ? "开启" : "关闭"));
+                sender.sendMessage("§b§BridgePractice §7>> §aPvP已" + (counter.isPvPEnabled() ? "Turned on" : "Turned off"));
                 break;
             }
             case "speed": {
                 counter.setSpeedCountEnabled(!counter.isSpeedCountEnabled());
-                sender.sendMessage("§b§l搭路练习 §7>> §a搭路速度统计已" + (counter.isSpeedCountEnabled() ? "开启" : "关闭"));
+                sender.sendMessage("§b§BridgePractice §7>> §aThe bridging speed statistics have been" + (counter.isSpeedCountEnabled() ? "Turned on" : "Turned off"));
                 break;
             }
             case "stand": {
                 counter.setStandBridgeMarkerEnabled(!counter.isStandBridgeMarkerEnabled());
-                sender.sendMessage("§b§l搭路练习 §7>> §a走搭位置指示已" + (counter.isStandBridgeMarkerEnabled() ? "开启" : "关闭"));
+                sender.sendMessage("§b§BridgePractice §7>> §a Walk position indication has been" + (counter.isStandBridgeMarkerEnabled() ? "Turned on" : "Turned off"));
                 break;
             }
             default: {
-                sender.sendMessage("§b§l搭路练习 §7>> §a尝试切换的功能 " + args[0] + " 不存在");
+                sender.sendMessage("§b§BridgePractice §7>> §aFunction to try to switch " + args[0] + "does not exist");
                 break;
             }
         }
